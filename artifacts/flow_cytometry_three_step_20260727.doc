@@ -1,0 +1,270 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="ChatGPT">
+<title>流式细胞术荧光强度直方图三步法</title>
+<style>
+@page Section1 {size:595.3pt 841.9pt; margin:48pt 52pt 48pt 52pt;}
+div.Section1 {page:Section1;}
+body {font-family:"Microsoft YaHei","SimSun",Arial,sans-serif; font-size:10.5pt; line-height:1.52; color:#20242a;}
+h1 {font-size:20pt; text-align:center; color:#17365d; margin:12pt 0 5pt 0;}
+h2 {font-size:15pt; color:#1f4e79; border-bottom:1px solid #9fbad0; padding-bottom:4pt; margin-top:18pt;}
+h3 {font-size:12pt; color:#2f5597; margin-top:12pt; margin-bottom:4pt;}
+p {margin:4pt 0; text-align:justify;}
+.sub {text-align:center; color:#5b6573; font-size:10pt; margin-bottom:14pt;}
+.callout {background:#fff2cc; border:1px solid #e0a32a; padding:9pt 11pt; margin:9pt 0;}
+.bluebox {background:#eaf2f8; border-left:5px solid #2f75b5; padding:8pt 11pt; margin:8pt 0;}
+.warn {background:#fce4d6; border-left:5px solid #c65911; padding:8pt 11pt; margin:8pt 0;}
+table {border-collapse:collapse; width:100%; margin:8pt 0 11pt 0;}
+th,td {border:1px solid #aab6c3; padding:5pt 6pt; vertical-align:top;}
+th {background:#d9eaf7; color:#17365d; font-weight:bold;}
+ul,ol {margin-top:3pt; margin-bottom:6pt;}
+li {margin:2pt 0;}
+.code {font-family:Consolas,"Courier New",monospace; background:#f4f6f8; border:1px solid #d0d7de; padding:8pt; white-space:pre-wrap;}
+.pagebreak {page-break-before:always;}
+.small {font-size:9pt; color:#5b6573;}
+strong {color:#17365d;}
+</style>
+</head>
+<body><div class="Section1">
+<h1>流式细胞术单参数荧光强度直方图、MFI/Median 与阳性率检测三步法提示词体系</h1>
+<div class="sub">Project 内专用｜上传即自动运行至第 1 步结果卡｜唯一人工确认点｜第 2 步文件优先｜Panel 逐 sheet 可复制最终版</div>
+
+<div class="callout"><strong>【最高优先级｜本 Word 上传即启动执行协议】</strong><br>
+只要本 Word 作为附件被发送并被读取，或在当前 Project 中被明确调用，即视为用户已经下达启动命令。不得等待用户另行发送“请读取 Word”“使用第 0 步”“使用第 1 步”或外置使用提示词；必须立即读取当前 Project 上下文和来源文件，在后台连续完成第 0 步与第 1 步。第一次可见回复只能是第 1 步完成后的“预期流式荧光直方图与定量图表总览及方案选择卡”。在用户确认方案并提供母文件名称之前，严禁进入第 2 步、生成 Excel、PNG、FCS 或直接在聊天中画图。</div>
+
+<h2>一、给人工看的使用方法</h2>
+<p>把本 Word 上传并作为附件发送到具体 Project 对话，消息正文可以为空。系统必须自动读取当前 Project 中的细胞模型、材料或药物处理、荧光探针/抗体、荧光通道、实验目的、真实数据和研究逻辑，后台完成第 0 步适配与第 1 步分析。人工第一次只查看方案结果卡，确认 Panel、连续 G 组、直方图峰型、MFI/Median、阳性率和趋势后，回复：</p>
+<div class="code">确认方案 A；母文件名称：p13f3B；进入第 2 步</div>
+<p>随后第 2 步自动生成一个 Excel 和一张组合 PNG，中途不再要求确认。若需要修改，回复“修改：……”并指出 Panel、G 组、探针、条件、趋势或定量指标。</p>
+
+<h2>二、三步法流程与唯一人工确认点</h2>
+<table>
+<tr><th>阶段</th><th>后台任务</th><th>用户可见内容/操作</th></tr>
+<tr><td>第 0 步</td><td>读取当前 Project，识别细胞、检测靶标、探针/抗体、荧光通道、门控、对照和旧项目残留，迁移并锁定第 1、2 步规则。</td><td>不展示正文；无需操作；自动进入第 1 步。</td></tr>
+<tr><td>第 1 步</td><td>完成方法学分析、Panel 与连续 G 组设计、直方图峰型、Median/MFI、阳性率、Mean±SD 范围与真实机器感约束。</td><td>只显示“预期流式荧光直方图与定量图表总览及方案选择卡”。</td></tr>
+<tr><td>交接处</td><td>锁定完整后台交接区。</td><td>唯一人工确认：确认方案＋输入一次母文件名称。</td></tr>
+<tr><td>第 2 步</td><td>生成/整理事件级数据、分箱数据、统计数据、Excel、逐 Panel _ok sheet 和数据驱动 PNG。</td><td>中途不介入；最终下载 Excel 和 PNG。</td></tr>
+</table>
+
+<h2>三、固定实验边界与不可混用规则</h2>
+<div class="bluebox"><strong>本 Word 固定用于：</strong>单参数流式细胞术荧光强度直方图、叠加直方图、Median fluorescence intensity/明确口径的 MFI、阳性细胞比例，以及对应的时间、剂量、抑制/阻断验证。它不得自动迁移为 Annexin V/PI 四象限、细胞周期 DNA 含量、多色免疫分群、t-SNE/UMAP、细胞分选、显微图像或其他实验。上述其他流式任务应另建专用三步法。</div>
+<table>
+<tr><th>术语</th><th>固定定义</th><th>禁止错误</th></tr>
+<tr><td>Fluorescence intensity</td><td>单细胞事件在锁定通道中的荧光信号；可保存原始正值及 log10/Logicle 变换值。</td><td>不得把横坐标当成时间、浓度或细胞数。</td></tr>
+<tr><td>Median/MFI</td><td>对明显右偏或对数分布，默认优先锁定 Median fluorescence intensity；若当前 Project 已明确 arithmetic mean 或 geometric mean，则严格沿用并在全文写清。</td><td>不得只写含糊的“MFI”而不说明统计口径；不得把事件内离散度当成 n=3 的组间 SD。</td></tr>
+<tr><td>Positive rate</td><td>在统一阴性门/阳性阈值下，目标门内事件占有效单细胞事件的百分比。</td><td>不得逐组移动阈值以迎合趋势。</td></tr>
+<tr><td>% of Max</td><td>每条直方图的最高 bin 归一化为 100%，仅用于比较形状。</td><td>不得将 % of Max 解释为真实细胞百分比；阳性率必须另算。</td></tr>
+<tr><td>小峰/肩峰</td><td>未归属的局部小凸起、弱肩峰或少量亚群，只描述为分布特征。</td><td>无独立证据时不得命名为新细胞类型、新机制或新的阳性亚群。</td></tr>
+</table>
+
+<div class="warn"><strong>真实性最高约束：</strong>流式直方图不得是理想高斯、单纯整体右移或同一模板缩放。必须具有有限事件计数带来的局部起伏、事件间生物异质性、仪器检测抖动、峰宽差异、右尾、轻微基线、随机弱肩峰或不知名小凸起；同时不能为了“机器感”制造大量杂峰、锯齿、明显伪双峰或破坏主要生物趋势。</div>
+
+<div class="pagebreak"></div>
+<h2>四、第 0 步提示词：当前 Project 流式荧光检测规则迁移、校正与锁定</h2>
+<h3>【第 0 步任务｜后台执行】</h3>
+<p>本步骤只负责把本 Word 的第 1 步和第 2 步完整迁移、校正并锁定为适用于当前 Project 的版本，不生成最终 Panel、最终 G 组、事件级数据、Excel、PNG 或 FCS，不展示迁移过程。第 0 步完成后必须立即在后台运行第 1 步。</p>
+
+<h3>【自动读取与来源优先级】</h3>
+<p>必须直接读取当前 Project 上下文、Project 来源文件、上传 Word/Excel/PDF/CSV/TXT、当前对话和真实数据，不得要求用户重新输入项目名称、研究目的、材料体系或项目介绍。信息优先级固定为：</p>
+<div class="code">本轮用户最新明确说明 ＞ 当前 Project 中可读取的真实 FCS/CSV/Excel 事件或统计数据 ＞ 当前 Project 最新锁定材料/细胞/分组 ＞ 当前 Project 研究总方案 ＞ 本 Word 通用规则 ＞ 旧项目示例</div>
+<p>任何旧细胞系、旧材料、旧探针、旧通道、旧 G 组、旧文件名、旧数值和“最终材料必然最高”的叙事必须清除。旧项目只迁移有效的方法学和真实性规则。</p>
+
+<h3>【必须识别并锁定的字段】</h3>
+<ul>
+<li>细胞类型、细胞状态、处理时间、材料/药物浓度、光照/阻断/刺激条件及核心科学问题；</li>
+<li>检测对象：细胞摄取、ROS、膜电位、表面抗原、胞内蛋白、活性探针或其他单参数荧光指标；</li>
+<li>探针/抗体全称、荧光染料、激光、检测通道、滤光片范围、采集参数及是否需要补偿；</li>
+<li>未染色、vehicle、probe-only、单染、FMO、阳性对照、抑制/阻断对照中真正有价值的最小组合；</li>
+<li>门控链：FSC/SSC 主细胞群 → 单细胞门 → 活细胞门（若适用）→ 目标荧光通道 → 固定阳性阈值；</li>
+<li>横坐标显示方式：原始正值的对数轴、log10 变换、Logicle 或 Biexponential；正式交接区只保留一个主方案；</li>
+<li>纵坐标：Count、Normalized frequency (%) 或 % of Max；正式图不得同时含糊使用多种口径；</li>
+<li>主要定量统计口径：Median、geometric mean 或 arithmetic mean；必须锁定一种并给出理由；</li>
+<li>每组有效事件数、n 值、重复类型、阳性阈值来源、是否存在真实 FCS/事件级数据或仅有截图；</li>
+<li>是否需要输出代表性直方图、Median/MFI 定量、阳性率、时间/剂量依赖或阻断验证。</li>
+</ul>
+
+<h3>【资料不足时的停止条件】</h3>
+<p>只有在当前 Project 中完全无法识别“细胞模型、目标荧光指标/探针、正式处理组”中的关键项时，才允许简短列出缺失项并停止。不得因为未主动检索 Project 文件而提问；不得自行套用 DCFH-DA、FITC、MitoSOX、JC-1 或其他旧探针。</p>
+
+<h3>【第 0 步结束规则】</h3>
+<p>不得展示新版提示词正文、迁移清单或第 0 步完成说明；必须直接进入第 1 步。只有用户明确要求“显示新版提示词”“显示第 0 步迁移内容”时才展示。</p>
+
+<div class="pagebreak"></div>
+<h2>五、第 1 步提示词：方法学分析、Panel 设计、连续 G 组与峰型预测</h2>
+<h3>【运行边界】</h3>
+<p>第 1 步只负责科学分析、实验条件、对照、Panel/G 组、直方图分布特征、Median/MFI、阳性率、Mean±SD 范围和完整第 2 步交接区构建。不得生成 Excel、PNG、FCS、事件级模拟数据或直接绘图。第 1 步必须一次完成，运行中不得要求人工确认。</p>
+
+<h3>【方法学设计】</h3>
+<ul>
+<li>优先给出可执行的细胞接种、材料/药物处理、孵育时间、洗涤、消化/收集、染色、避光孵育、重悬和上机条件；参数必须依据当前 Project 锁定。</li>
+<li>默认规划 n=3 独立重复；每个重复采集约 8,000–30,000 个通过最终门的有效事件，具体数值由当前实验锁定。不同重复不得固定为完全相同事件数。</li>
+<li>所有正式组使用同一电压/增益、同一补偿矩阵、同一门控链和同一阳性阈值；批次确需改变设置时，不得把不同设置直接混为同一 Panel。</li>
+<li>单参数实验优先采用未染色/vehicle 作为阴性背景；多色条件下是否使用 FMO 由实际面板决定。不得机械堆砌所有对照。</li>
+</ul>
+
+<h3>【正式 Panel 与连续 G 组】</h3>
+<p>第 1 步必须确定最终 Panel 数量；每个直方图 Panel 通常包含 3–5 条曲线，总正式 G 组默认不超过 G10，全部使用 G1、G2、G3……连续编号，不同 Panel 不得重新从 G1 开始。每个 Panel 只回答一个主要问题，并锁定唯一变量和固定条件。</p>
+<ul>
+<li><strong>Panel A：</strong>代表性单参数叠加直方图；显示峰位、峰宽、偏态、右尾、肩峰和亚群变化。</li>
+<li><strong>Panel B：</strong>Median fluorescence intensity 或已锁定的 MFI 定量，n=3，Mean±SD。</li>
+<li><strong>Panel C：</strong>固定阈值下阳性细胞比例，n=3，Mean±SD。</li>
+<li><strong>Panel D：</strong>时间、剂量、抑制/阻断或触发条件验证；只有科学价值明确时才加入。</li>
+</ul>
+<p>不得为了增加 Panel 数量而重复同一结论。若当前 Project 只需要直方图＋MFI，则只设置必要 Panel。</p>
+
+<h3>【直方图峰型与随机性强约束】</h3>
+<ul>
+<li>每组必须独立确定：主峰大致位置、左/右半峰宽、峰顶尖钝、偏斜方向、右尾长度、背景尾、弱肩峰、未归属小凸起及其事件比例。</li>
+<li>正式分布不得由一个标准曲线整体平移、整体拉伸或乘固定系数得到；不同组必须体现不同的细胞异质性来源。</li>
+<li>阴性/未染色组也应有有限右尾和低水平异质性，不能画成贴在零点的尖针；强阳性组不能全部变成 100% 阳性或完全无重叠。</li>
+<li>同一通道或探针下，组间变化可表现为整体右移、展宽、峰顶钝化、右尾增强、阳性亚群比例增加或双亚群，但不能默认所有组只发生右移。</li>
+<li>每条代表性直方图允许 0–2 个未归属局部小峰/弱肩峰，通常占最终门事件的 1%–6%，最高不超过 10%；与主峰间隔通常为 0.15–0.70 log10 decade。不同组的小峰位置和比例不得相同，且不得每组强制出现。</li>
+<li>若小峰形成清晰、稳定、可重复的第二主峰，必须在第 1 步明确锁定为双亚群设计；否则第 2 步应自动减弱并重做。</li>
+</ul>
+
+<h3>【机器感、噪声与重复差异】</h3>
+<div class="callout"><strong>机器感必须来自事件级随机性和有限计数，而不是在平滑曲线上随意叠加白噪声。</strong></div>
+<ul>
+<li>每个重复独立生成/整理事件分布；不同重复的主峰位置可漂移约 0.02–0.10 log10 decade，峰宽可变化约 3%–12%，偏态和尾部强度轻微变化。</li>
+<li>最终门事件数在重复间自然变化约 5%–20%；bin 计数遵循有限事件统计，低计数区允许更明显局部起伏。</li>
+<li>峰区局部起伏应自然、连续且非周期性；不得使用规则正弦波、锯齿模板、相同随机序列或同一噪声数组。</li>
+<li>允许 0.2%–2.0% 的低荧光背景/边缘事件，允许极少数高荧光尾部事件；不得制造大量离群事件或让尾部超出锁定仪器范围。</li>
+<li>任何一条曲线不得过度平滑。代表性图默认使用原始分箱阶梯线或仅 0–1 个 bin 的轻微平滑；禁止多次移动平均、强核平滑或理想拟合曲线替代实测直方图。</li>
+<li>不同组必须保持同一台仪器/同一批实验的整体风格，但峰位、峰宽、偏态、肩峰、尾部和小起伏必须独立。</li>
+</ul>
+
+<h3>【Mean、SD 与定量范围锁定】</h3>
+<ul>
+<li>第 1 步必须为每组锁定 Median/MFI 合理范围、阳性率范围、n=3 组间 SD/CV 范围以及趋势顺序；不直接生成最终数字。</li>
+<li>稳定阴性/vehicle 组的组间 CV 可通常规划在约 3%–10%；强处理或异质性较高组可约 6%–18%；接近检测下限或阈值的组可更高，但不得统一使用同一比例。</li>
+<li>阳性率 SD 优先按绝对百分点约束，通常约 1–8 个百分点并随事件数、门边界和异质性变化；接近 0% 或 100% 时不得机械按百分比 CV。</li>
+<li>直方图内部峰宽/分散度与 n=3 的 Median/MFI SD 是两个不同概念，必须分别锁定，不能相互替代。</li>
+<li>不得让所有组 SD 相同、SD 固定为均值的同一百分比、Median/MFI 与阳性率完全同比例变化，或最终材料在所有指标中被强制设为最好。</li>
+</ul>
+
+<h3>【第 1 步后台交接区必须锁定的字段】</h3>
+<p>完整后台交接区必须包含：细胞、处理、探针/抗体、荧光染料、激光/通道、采集范围、横轴变换、纵轴口径、门控链、阴性阈值来源、补偿、事件数、重复数、Panel 数量、连续 G 组、每组含义、唯一变量、固定条件、主峰位置范围、左/右半峰宽、偏态、尾部、肩峰/小峰范围、Median/MFI 范围、阳性率范围、SD/CV 范围、代表性重复选择规则、Excel sheet 命名、PNG 布局和第 2 步禁止事项。</p>
+
+<h3>【本轮唯一可见输出｜结果卡】</h3>
+<p>第 1 步完成后，不展示长篇推理、隐藏提示词或完整交接区，只显示结果卡，必须包括：</p>
+<ol>
+<li>检测对象、探针/抗体、荧光通道与推荐统计口径；</li>
+<li>最终几个 Panel，以及每个 Panel 的图形类型；</li>
+<li>每个 Panel 的连续 G 组、细胞、材料/药物/刺激条件和曲线数量；</li>
+<li>统一门控、阳性阈值、事件数、横纵坐标及尺度；</li>
+<li>各组主峰位置、峰宽、偏态、右尾、肩峰/小峰及机器感概述；</li>
+<li>Median/MFI 与阳性率合理范围、最高/最低及完整趋势排序；</li>
+<li>默认推荐进入第 2 步的方案 A。</li>
+</ol>
+<p>结果卡最后固定提示：<strong>“请回复：确认方案 A；母文件名称：XXX；进入第 2 步，或回复‘修改：……’。”</strong></p>
+
+<div class="pagebreak"></div>
+<h2>六、第 2 步提示词：事件级预测数据、Excel 与 Origin 风格图文件生成</h2>
+<h3>【启动条件与不可回退】</h3>
+<p>同一对话中，用户确认方案并提供母文件名称后，必须自动读取后台锁定交接区并立即执行第 2 步。不得要求再次粘贴交接区，不得重新分析、重新分组、改变探针、门控、趋势、峰型或 Panel。跨对话且无法读取交接区时，才允许要求提供第 1 步结果卡或完整交接区。</p>
+
+<h3>【第 2 步本质与工具路由硬锁】</h3>
+<p>第 2 步是严格的数据与文件生成任务，不是聊天绘图任务。进入第 2 步后的第一个工具调用必须用于生成事件级数值数据或创建 Excel；全程禁止调用 image_gen、DALL·E、Images 2.0 及任何生成式图像工具制作直方图。必须先生成或整理事件级数据和统计数据，再创建 Excel，再只从已经保存并重新打开校验的 Excel 最终数据生成 PNG，再将同一 PNG/对应 Panel 预览嵌入 Excel。Excel 和 PNG 真实存在、可打开且通过自动检查前，不得回复完成。</p>
+
+<h3>【数据状态声明】</h3>
+<p>若没有真实 FCS/CSV 事件数据，所有数值必须标记为：</p>
+<div class="code">Predicted/simulated flow-cytometry fluorescence data for experimental planning; not measured FCS data.</div>
+<p>不得声称已读取真实 FCS、恢复仪器原始事件、复现真实门控或获得实测结果。若提供真实可读取数据，则以真实数据为最高锚点，预测数据只用于明确缺失部分并逐行标注。</p>
+
+<h3>【事件级数据生成】</h3>
+<ul>
+<li>每组必须有 Rep1、Rep2、Rep3 三个独立重复；每个重复生成/整理第 1 步锁定范围内的有效事件数，禁止固定完全相同事件数。</li>
+<li>先生成单细胞事件的 Fluorescence_raw_au，再按锁定方式得到 Fluorescence_transformed；不得直接从一条平滑函数采样后复制。</li>
+<li>分布可使用多个生物学来源成分组合，但必须保持第 1 步锁定的主峰、偏态、尾部、肩峰和小峰；各重复参数独立轻微漂移。</li>
+<li>有限事件本身产生 bin-to-bin 波动；不得为三次重复共享随机种子、事件数组或噪声序列。</li>
+<li>阳性阈值在同一 Panel 全组固定；每个事件记录 Positive_status，阳性率由事件重新计算。</li>
+<li>代表性直方图选择每组 Median/MFI 最接近三次重复中位值、且峰型与预设一致的一次；不得把三条事件分布直接平均成过度平滑曲线。</li>
+</ul>
+
+<h3>【统一分箱】</h3>
+<ul>
+<li>同一 Panel 所有组使用相同荧光范围、相同变换和相同分箱边界；通常使用 128 或 256 个等距变换 bin，具体由第 1 步锁定。</li>
+<li>每组同时保存 Count、Frequency_percent 和 Percent_of_Max；正式直方图只使用第 1 步锁定的一种纵坐标。</li>
+<li>每组 Frequency_percent 总和应为 100%（允许四舍五入误差）；Percent_of_Max 的最高 bin 必须为 100。</li>
+<li>不得为不同组单独改变 bin 范围以夸大分离程度。</li>
+</ul>
+
+<h3>【Excel 文件与工作表】</h3>
+<p>Excel 文件名固定为：<strong>【母文件名称】.xlsx</strong>。工作表顺序：</p>
+<ol>
+<li><strong>【母文件名称】_yuanshi</strong>：全部事件级长格式数据、Rep1–Rep3、门控状态、荧光值、阳性状态、Selected_for_plot 和数据状态；</li>
+<li><strong>【母文件名称】_Flow_QC</strong>：仪器/通道、门控、阈值、补偿、事件数、采集范围、重复与质量检查；</li>
+<li>每个 Panel 对应一个独立 <strong>_data</strong> 工作表和一个独立以 <strong>_ok</strong> 结尾的 Origin 复制工作表；</li>
+<li>最后一张必须为 <strong>【母文件名称】_sum</strong>。</li>
+</ol>
+
+<h3>【Panel 与 _ok sheet 一一对应】</h3>
+<p>有几个 Panel 就必须有几个独立 _ok 工作表。建议命名：</p>
+<div class="code">Panel A → 【母文件名称】_Flow_A_ok
+Panel B → 【母文件名称】_Flow_B_ok
+Panel C → 【母文件名称】_Flow_C_ok
+Panel D → 【母文件名称】_Flow_D_ok</div>
+<p>每个 _ok 工作表从 A1 开始放置可直接复制到 Origin 的连续数据块，不得有合并单元格、空白行/列、公式、隐藏行列或说明文字插入主数据区。</p>
+<ul>
+<li>直方图 Panel：Fluorescence_bin_center_au、G1_%Max、G2_%Max……，或锁定的 Normalized_frequency；表头使用真实组名。</li>
+<li>Median/MFI Panel：Group、Metric_Mean_au、Metric_SD_au。</li>
+<li>阳性率 Panel：Group、Positive_rate_Mean_percent、Positive_rate_SD_percent。</li>
+<li>时间/剂量 Panel：Time_or_Dose、Condition1_Mean、Condition1_SD、Condition2_Mean、Condition2_SD……。</li>
+</ul>
+<p>每个 _ok sheet 右侧或数据末尾下方增加一个橘黄色说明框，简明写清 X 轴、Y 轴、Y1/Y2/Y3 对应组别、横轴对数设置和误差棒来源；使用确定性说明，不写“建议”。说明框不得遮挡或打断 A1 连续数据块。</p>
+
+<h3>【_yuanshi 固定字段】</h3>
+<p>至少包含：Panel、Group、Sample、Cell_type、Treatment、Probe_or_antibody、Fluorophore、Channel、Replicate、Event_ID、FSC_SSC_gate、Singlet_gate、Live_gate、Fluorescence_raw_au、Fluorescence_transformed、Positive_gate_threshold、Positive_status、Selected_for_plot、Data_status。统计汇总至少包含每组每重复的 Median/Mean/Geometric_mean、Positive_rate、Event_count、主峰位置、峰宽、偏态、尾部比例、小峰比例、最终 Mean、SD 和 CV。</p>
+
+<h3>【Origin/论文风格 PNG】</h3>
+<p>最终组合 PNG 命名为：<strong>【母文件名称】_R_Flow.png</strong>。图的 Panel 数量与布局严格服从确认方案。</p>
+<ul>
+<li>白色背景、黑色坐标轴、无灰底、无主次网格线；Arial 字体；Panel 标签 A/B/C/D 加粗；600 dpi。</li>
+<li>直方图横坐标必须显示目标标志物/探针和荧光强度尺度，例如“Probe fluorescence intensity (a.u., log scale)”；不得只写 FL1-A 等无信息名称。</li>
+<li>直方图使用阶梯线或轻透明填充，线宽约 1.2–1.8 pt；低饱和、区分度高配色；不使用彩虹色或过度鲜艳颜色。</li>
+<li>允许真实局部起伏和小凸起，不得用高斯拟合曲线覆盖或替代直方图，不得强平滑。</li>
+<li>MFI/Median 和阳性率图使用 n=3 Mean±SD；误差棒必须与 Excel 完全一致。</li>
+<li>图例使用真实材料/条件，不得只写 G1、G2。</li>
+<li>曲线和柱形必须从 Excel 数据逐点绘制；不得调用图像生成方式制作科研直方图。</li>
+</ul>
+
+<h3>【强制执行顺序】</h3>
+<ol>
+<li>锁定母文件名称和第 1 步交接区；</li>
+<li>生成/整理全部 Rep1–Rep3 事件数据和门控/QC；</li>
+<li>由事件数据计算直方图、Median/MFI、阳性率及 Mean±SD；</li>
+<li>创建并保存完整 Excel；</li>
+<li>重新打开 Excel 并验证工作表、数据块和统计一致性；</li>
+<li>为每个 Panel 建立独立 _data 和 _ok 工作表；</li>
+<li>只从 Excel 的最终数据生成组合 PNG；</li>
+<li>将同一 PNG 或对应 Panel 预览嵌入 Excel 且不打断 A1 数据块；</li>
+<li>再次保存最终 Excel；</li>
+<li>检查 Excel 与 PNG 真实存在、可打开、命名正确；</li>
+<li>检查 Panel 数量与 _ok 数量一致、_sum 为最后一张、各 _ok 可直接复制到 Origin、PNG 与 Excel 逐点一致；</li>
+<li>全部通过后才允许回复。</li>
+</ol>
+
+<h2>七、自动质量检查与重做门</h2>
+<table>
+<tr><th>检查项</th><th>通过标准</th></tr>
+<tr><td>门控一致性</td><td>同一 Panel 的门控链、阈值、变换、bin 和仪器范围完全一致；无逐组移动门。</td></tr>
+<tr><td>真实性</td><td>存在有限事件噪声、随机局部起伏、重复差异、合理尾部及 0–2 个未归属弱肩峰/小峰；无规则噪声和过度平滑。</td></tr>
+<tr><td>曲线独立性</td><td>不存在同一曲线平移、拉伸、缩放；不存在共享事件数组、随机序列、小峰位置或统一峰宽。</td></tr>
+<tr><td>定量一致性</td><td>Median/MFI、阳性率、Mean、SD 可由事件数据重新计算；图中数值与 Excel 一致。</td></tr>
+<tr><td>物理边界</td><td>事件数为正；阳性率 0–100%；频率和为 100%；% of Max 峰值为 100；无无机制的全阴性或全阳性。</td></tr>
+<tr><td>小峰归属</td><td>未归属小峰不被写成新细胞群或机制；若形成稳定双峰，必须与第 1 步锁定一致。</td></tr>
+<tr><td>文件完整性</td><td>Excel、PNG 可打开；_yuanshi、_Flow_QC、逐 Panel _data/_ok、唯一 _sum 全部存在；_sum 最后。</td></tr>
+<tr><td>数据状态</td><td>无真实 FCS 时，全工作簿和 _sum 明确标注为预测/模拟规划数据，不伪装实测。</td></tr>
+</table>
+<p>任一核心检查不通过，必须自动重生成相关事件数据、Excel 或 PNG，不能把不合格文件交给用户。</p>
+
+<h2>八、最终输出限制</h2>
+<p>第 2 步最终只交付两个可下载文件：</p>
+<div class="code">1. 【母文件名称】.xlsx
+2. 【母文件名称】_R_Flow.png</div>
+<p>不得输出伪造的 .fcs 文件、文件夹、R/Python 脚本、隐藏交接区、提示词正文或长篇分析；不得先在聊天中展示图片再补 Excel；不得用聊天预览代替 PNG。最终回复只需简短说明已按确认方案完成，并提供两个下载链接。</p>
+
+<p class="small">文档版本：Project 内专用上传即自动运行至第 1 步结果卡｜单参数流式荧光直方图、Median/MFI 与阳性率｜Panel 逐 sheet 最终版。</p>
+</div></body></html>

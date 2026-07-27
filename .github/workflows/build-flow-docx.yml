@@ -4,6 +4,11 @@ on:
     paths:
       - '.github/workflows/build-flow-docx.yml'
       - 'artifacts/flow_cytometry_three_step_final_20260727_v2.doc'
+  pull_request:
+    paths:
+      - '.github/workflows/build-flow-docx.yml'
+      - 'artifacts/flow_cytometry_three_step_final_20260727_v2.doc'
+      - 'artifacts/flow_docx_trigger.txt'
   workflow_dispatch:
 permissions:
   contents: write
@@ -21,7 +26,7 @@ jobs:
           python - <<'PY'
           from bs4 import BeautifulSoup
           from docx import Document
-          from docx.shared import Pt, Cm, RGBColor
+          from docx.shared import Pt, Cm
           from docx.enum.text import WD_ALIGN_PARAGRAPH
           from docx.enum.table import WD_TABLE_ALIGNMENT, WD_CELL_VERTICAL_ALIGNMENT
           from docx.oxml import OxmlElement
@@ -34,7 +39,6 @@ jobs:
           doc = Document()
           sec = doc.sections[0]
           sec.top_margin = Cm(1.8); sec.bottom_margin = Cm(1.8); sec.left_margin = Cm(2.0); sec.right_margin = Cm(2.0)
-
           styles = doc.styles
           styles['Normal'].font.name = 'Microsoft YaHei'
           styles['Normal']._element.rPr.rFonts.set(qn('w:eastAsia'), 'Microsoft YaHei')
@@ -49,62 +53,42 @@ jobs:
           def shade_cell(cell, fill):
               tcPr = cell._tc.get_or_add_tcPr()
               shd = OxmlElement('w:shd'); shd.set(qn('w:fill'), fill); tcPr.append(shd)
-
           def set_cell_text(cell, text, bold=False):
               cell.text = ''
               p = cell.paragraphs[0]
-              r = p.add_run(text)
-              r.bold = bold
-              r.font.name = 'Microsoft YaHei'
-              r._element.rPr.rFonts.set(qn('w:eastAsia'), 'Microsoft YaHei')
-              r.font.size = Pt(9.5)
+              r = p.add_run(text); r.bold = bold
+              r.font.name = 'Microsoft YaHei'; r._element.rPr.rFonts.set(qn('w:eastAsia'), 'Microsoft YaHei'); r.font.size = Pt(9.5)
               cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.TOP
 
-          body = soup.body
-          for el in body.find_all(recursive=False):
+          for el in soup.body.find_all(recursive=False):
               if el.name == 'h1':
                   p = doc.add_paragraph(style='Title'); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; p.add_run(el.get_text(' ', strip=True))
-              elif el.name == 'h2':
-                  doc.add_heading(el.get_text(' ', strip=True), level=1)
-              elif el.name == 'h3':
-                  doc.add_heading(el.get_text(' ', strip=True), level=2)
+              elif el.name == 'h2': doc.add_heading(el.get_text(' ', strip=True), level=1)
+              elif el.name == 'h3': doc.add_heading(el.get_text(' ', strip=True), level=2)
               elif el.name == 'p':
-                  p = doc.add_paragraph()
-                  p.paragraph_format.space_after = Pt(3)
-                  p.paragraph_format.line_spacing = 1.25
-                  p.add_run(el.get_text(' ', strip=True))
+                  p = doc.add_paragraph(); p.paragraph_format.space_after = Pt(3); p.paragraph_format.line_spacing = 1.25; p.add_run(el.get_text(' ', strip=True))
               elif el.name == 'div':
                   classes = set(el.get('class', []))
-                  if 'pagebreak' in classes:
-                      doc.add_page_break(); continue
-                  p = doc.add_paragraph()
-                  p.paragraph_format.space_before = Pt(4); p.paragraph_format.space_after = Pt(4)
-                  p.paragraph_format.left_indent = Cm(0.25); p.paragraph_format.right_indent = Cm(0.25)
-                  p.add_run(el.get_text('\n', strip=True))
-                  pPr = p._p.get_or_add_pPr()
-                  shd = OxmlElement('w:shd')
+                  if 'pagebreak' in classes: doc.add_page_break(); continue
+                  p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(4); p.paragraph_format.space_after = Pt(4); p.paragraph_format.left_indent = Cm(0.25); p.paragraph_format.right_indent = Cm(0.25); p.add_run(el.get_text('\n', strip=True))
+                  pPr = p._p.get_or_add_pPr(); shd = OxmlElement('w:shd')
                   fill = 'FFF2CC' if 'callout' in classes else ('EAF2F8' if 'bluebox' in classes else ('FCE4D6' if 'warn' in classes else 'F4F6F8'))
                   shd.set(qn('w:fill'), fill); pPr.append(shd)
               elif el.name in ['ul','ol']:
                   style = 'List Bullet' if el.name == 'ul' else 'List Number'
                   for li in el.find_all('li', recursive=False):
-                      p = doc.add_paragraph(style=style)
-                      p.paragraph_format.space_after = Pt(1)
-                      p.add_run(li.get_text(' ', strip=True))
+                      p = doc.add_paragraph(style=style); p.paragraph_format.space_after = Pt(1); p.add_run(li.get_text(' ', strip=True))
               elif el.name == 'table':
                   rows = el.find_all('tr', recursive=False)
                   if not rows: continue
                   max_cols = max(len(r.find_all(['th','td'], recursive=False)) for r in rows)
-                  table = doc.add_table(rows=len(rows), cols=max_cols)
-                  table.alignment = WD_TABLE_ALIGNMENT.CENTER
-                  table.style = 'Table Grid'
+                  table = doc.add_table(rows=len(rows), cols=max_cols); table.alignment = WD_TABLE_ALIGNMENT.CENTER; table.style = 'Table Grid'
                   for i, row in enumerate(rows):
                       cells = row.find_all(['th','td'], recursive=False)
                       for j, c in enumerate(cells):
                           set_cell_text(table.cell(i,j), c.get_text(' ', strip=True), bold=(c.name=='th'))
                           if c.name=='th': shade_cell(table.cell(i,j), 'D9EAF7')
                   doc.add_paragraph()
-
           doc.core_properties.title = '流式细胞术单参数荧光强度直方图、MFI/Median与阳性率检测三步法'
           doc.core_properties.subject = 'Project内专用上传即自动运行至第1步结果卡Panel逐sheet最终版'
           doc.core_properties.author = 'OpenAI'
@@ -116,7 +100,8 @@ jobs:
         with:
           name: flow-cytometry-three-step-word
           path: artifacts/流式细胞术荧光强度直方图_MFI_Median与阳性率检测三步法提示词体系_Project内专用上传即自动运行至第1步结果卡Panel逐sheet最终版.docx
-      - name: Commit generated DOCX
+      - name: Commit generated DOCX on push only
+        if: github.event_name == 'push'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
